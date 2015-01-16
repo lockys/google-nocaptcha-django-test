@@ -4,7 +4,10 @@ from nocaptha import captcha as nocaptha
 from django.http import HttpResponse
 import jsons
 
-#  /your-url/ must be specified in url.py
+"""
+/your-url/ must be specified in url.py
+"""
+
 def validate_the response(request):
 	res = nocaptha.submit(request.POST['g-recaptcha'], 'Your Secret Key', get_ip(request))
 	if not res.is_valid():
@@ -12,6 +15,11 @@ def validate_the response(request):
 		return HttpResponse(jsons.dumps({'status': '400', 'msg': 'You are a robot.'}))
 	else:
 		return HttpResponse(jsons.dumps({'status': '200', 'msg': 'You are not a robot'}))
+
+"""
+  get user's ip.
+"""
+
 
 def get_ip(request):
     """Returns the IP of the request, accounting for the possibility of being
