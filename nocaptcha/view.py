@@ -8,13 +8,15 @@ import jsons
 /your-url/ must be specified in url.py
 """
 
-def validate_the response(request):
-	res = nocaptha.submit(request.POST['g-recaptcha'], 'Your Secret Key', get_ip(request))
-	if not res.is_valid():
-		# Return a json object to client
-		return HttpResponse(jsons.dumps({'status': '400', 'msg': 'You are a robot.'}))
-	else:
-		return HttpResponse(jsons.dumps({'status': '200', 'msg': 'You are not a robot'}))
+
+def validate_the_response(request):
+    res = nocaptha.submit(request.POST['g-recaptcha'], 'Your Secret Key', get_ip(request))
+    if not res.is_valid():
+        # Return a json object to client
+        return HttpResponse(jsons.dumps({'status': '400', 'msg': 'You are a robot.'}))
+    else:
+        return HttpResponse(jsons.dumps({'status': '200', 'msg': 'You are not a robot'}))
+
 
 """
   get user's ip.
