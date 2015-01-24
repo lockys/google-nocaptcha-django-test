@@ -1,4 +1,4 @@
-#  Django view
+# A Simple Django view
 # pip install nocaptcha
 from nocaptha import captcha as nocaptha
 from django.http import HttpResponse

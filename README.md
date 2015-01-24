@@ -3,6 +3,8 @@
 You 'll get your own site key and secret key.
 
 ## Install the nocaptcha package ##
+In order to use nocaptcha package, you have to..
+
     pip install nocaptcha
 
 Note that this is NOT a complete Django project.
